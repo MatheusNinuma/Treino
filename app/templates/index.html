@@ -1,12 +1,12 @@
-<!-- Comentário, linguagem de marcação e não de programação -->
-<!-- Cria uma tag HTML (1) Cabeçalho e (2)Corpo -->
-<html>
-    <head>
+{% extends "base.html" %}
 
-    </head>
-
-    <body>
-        <h1>Olá, mundo!</h1> 
-    </body>
-
-</html>
+{% block content %}
+<h1>Olá, {{ user.username }}!</h1>
+<div>
+    {% for post in posts %}
+        <p>{{ post.autor.username }} diz: <b>{{ post.body }}</b></p>
+    {% else %}
+        <p>Ainda não há posts disponível para você</p>
+    {% endfor %}
+</div>
+{% endblock %}
